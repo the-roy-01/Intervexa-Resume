@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Intervexa</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url('static/background.jpeg') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Dark overlay */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 20, 50, 0.7);
+}
+
+/* Card */
+.container {
+    position: relative;
+    width: 320px;
+    padding: 25px;
+    border-radius: 25px;
+    border: 2px solid hsl(204, 65%, 57%);
+    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 25px rgba(47, 0, 255, 0.489);
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+.container h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 30px;
+}
+
+/* Inputs */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: #dcdcdc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Input focus glow */
+.input-box input:focus {
+    box-shadow: 0 0 10px #7fb3ff;
+    background: #fff;
+}
+
+/* Icons */
+.input-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+}
+
+/* Options */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.options a {
+    color: #7fb3ff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 25px;
+    border: none;
+    background: #e0e0e0;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* Glow animation */
+.login-btn::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: -100%;
+    left: -100%;
+    background: radial-gradient(circle, rgba(127,179,255,0.4) 0%, transparent 60%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+/* Hover effect */
+.login-btn:hover::before {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.login-btn:hover {
+    background: #ffffff;
+    box-shadow: 0 0 15px #7fb3ff;
+    transform: scale(1.03);
+}
+
+/* Click effect */
+.login-btn:active {
+    transform: scale(0.97);
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: #aaa;
+    margin: 20px 0;
+}
+
+/* GOOGLE BUTTON */
+.google-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Hover animation */
+.google-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.google-btn img {
+    width: 18px;
+}
+
+/* Smooth fade-in animation */
+.container {
+    animation: fadeIn 1s ease;
+}
+
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+<!-- Icons CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<link rel="stylesheet" href="style.css">
+
+
+<body>
+
+    
+<div class="container">
+    <h2>Log In</h2>
+<form action="/login" method="POST">
+    <div class="input-box">
+        <i class="fa fa-user"></i>
+        <input type="text" name="email" placeholder="Username/email address" required>
+    </div>
+
+    <div class="input-box">
+        <i class="fa fa-lock"></i>
+        <input type="password" name="password" placeholder="Password" required>
+    </div>
+
+    <div class="options">
+        <label><input type="checkbox"> Remember Me</label>
+        <a href="{{ url_for('fone') }}">Forget Password</a>
+    </div>
+
+    <button class="login-btn" onclick="window.location.href='try.html'">Login</button>
+
+    <div class="divider"></div>
+
+    <button class="google-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png">
+        Continue with Google
+    </button>
+    <div>
+    <a href='{{ url_for('register') }}' class="register-link">Don't have an account? <b>Sign-up</b></a>
+    </div>
+</form>
+</div>
+
+</body>
+</html>

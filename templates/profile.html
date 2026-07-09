@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+
+background:
+radial-gradient(circle at top,
+#12356e 0%,
+#08122f 45%,
+#040918 100%);
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+color:#fff;
+
+overflow-x:hidden;
+
+}
+
+.wrapper{
+
+width:100%;
+
+max-width:1450px;
+
+background:rgba(10,20,55,.55);
+
+border:1px solid rgba(70,120,255,.25);
+
+backdrop-filter:blur(18px);
+
+border-radius:30px;
+
+padding:50px;
+
+box-shadow:
+
+0 0 60px rgba(0,0,0,.45),
+
+0 0 40px rgba(59,130,246,.15);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.wrapper::before{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+
+height:450px;
+
+background:#2463ff22;
+
+filter:blur(120px);
+
+right:-120px;
+
+top:-120px;
+
+border-radius:50%;
+
+}
+
+.wrapper::after{
+
+content:"";
+
+position:absolute;
+
+width:350px;
+
+height:350px;
+
+background:#8b5cf622;
+
+filter:blur(120px);
+
+left:-120px;
+
+bottom:-120px;
+
+border-radius:50%;
+
+}
+
+.content{
+
+position:relative;
+
+z-index:5;
+
+}
+.top{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.back-btn{
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width:62px;
+    height:62px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.02);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:24px;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.back-btn:hover{
+    background:#2463ff;
+    transform:translateY(-4px);
+}
+
+.heading{
+    text-align:center;
+}
+
+.heading h1{
+    font-size:52px;
+    font-weight:800;
+    margin-bottom:10px;
+}
+
+.heading p{
+    color:#b4c3df;
+    font-size:20px;
+}
+.profile-area{
+
+display:flex;
+
+justify-content:center;
+
+margin-top:35px;
+
+margin-bottom:45px;
+
+}
+
+.avatar{
+
+position:relative;
+
+width:190px;
+
+height:190px;
+
+border-radius:50%;
+
+padding:5px;
+
+background:linear-gradient(135deg,#2f6fff,#8b5cf6);
+
+}
+
+.avatar-inner{
+
+width:100%;
+
+height:100%;
+
+background:#08152d;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:90px;
+
+color:#d7e5ff;
+
+}
+
+.camera{
+
+position:absolute;
+
+right:5px;
+
+bottom:8px;
+
+width:58px;
+
+height:58px;
+
+border-radius:50%;
+
+background:#091c3c;
+
+border:2px solid #3b82f6;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:24px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.camera:hover{
+
+background:#2463ff;
+
+transform:scale(1.08);
+
+}
+
+.form{
+
+max-width:720px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:22px;
+
+}
+
+.field{
+
+display:flex;
+
+align-items:center;
+
+background:rgba(12,23,55,.8);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:18px;
+
+padding:22px 25px;
+
+transition:.3s;
+
+}
+
+.field:hover{
+
+border-color:#4f8dff;
+
+box-shadow:0 0 20px rgba(59,130,246,.18);
+
+}
+
+.field i:first-child{
+
+font-size:22px;
+
+width:40px;
+
+color:#b7c7e7;
+
+}
+.field input{
+
+flex:1;
+
+background:transparent;
+
+border:none;
+
+outline:none;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:500;
+
+padding:0 12px;
+
+}
+
+.field input::placeholder{
+
+color:#90a4c5;
+
+}
+
+.arrow{
+
+font-size:20px;
+
+color:#6fa6ff;
+
+transition:.3s;
+
+}
+
+.field:hover .arrow{
+
+transform:translateX(6px);
+
+color:#3b82f6;
+
+}
+
+.save-btn{
+
+margin-top:20px;
+
+height:65px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:20px;
+
+font-weight:700;
+
+cursor:pointer;
+
+color:white;
+
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(37,99,235,.35);
+
+}
+
+.save-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 20px 45px rgba(37,99,235,.5);
+
+}
+
+@media(max-width:768px){
+
+body{
+
+padding:20px;
+
+}
+
+.wrapper{
+
+padding:25px;
+
+border-radius:22px;
+
+}
+
+.heading{
+
+margin-right:0;
+
+}
+
+ @media (max-width:768px){
+
+    .top{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        position:relative;
+        padding-top:20px;
+    }
+
+    .back-btn{
+        position:absolute;
+        left:0;
+        top:0;
+        width:50px;
+        height:50px;
+    }
+
+    .heading h1{
+        font-size:36px;
+    }
+
+    .heading p{
+        font-size:16px;
+    }
+
+}
+
+.avatar{
+
+width:140px;
+
+height:140px;
+
+}
+
+.avatar-inner{
+
+font-size:65px;
+
+}
+
+.camera{
+
+width:45px;
+
+height:45px;
+
+font-size:18px;
+
+}
+
+.field{
+
+padding:18px;
+
+}
+
+.field input{
+
+font-size:16px;
+
+}
+
+.save-btn{
+
+height:58px;
+
+font-size:18px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="content">
+
+<div class="top">
+
+    <div class="back-btn" onclick="window.location.href='{{ url_for('homelog') }}'">
+        <i class="fa-solid fa-arrow-left"></i>
+    </div>
+
+    <div class="heading">
+        <h1>Edit Profile</h1>
+        <p>Update your personal information</p>
+    </div>
+
+</div>
+
+<div class="profile-area">
+
+<div class="avatar">
+
+<div class="avatar-inner">
+
+{% if user and user.profile_image %}
+<img src="{{ url_for('static', filename='profile_images/' + user.profile_image) }}"
+     style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
+{% else %}
+<i class="fa-solid fa-user"></i>
+{% endif %}
+
+</div>
+
+<div class="camera">
+<i class="fa-solid fa-camera"></i>
+</div>
+
+</div>
+
+</div>
+
+<form class="form"
+      method="POST"
+      action="{{ url_for('update_profile') }}"
+      enctype="multipart/form-data">
+
+<input
+type="file"
+id="profileImage"
+name="profile_image"
+accept="image/*"
+style="display:none;">
+
+<!-- Full Name -->
+
+<div class="field">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+name="fullname"
+placeholder="Full Name"
+value="{{ user.fullname if user else '' }}">
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<!-- Phone -->
+
+<div class="field">
+
+<i class="fa-solid fa-phone"></i>
+
+<input
+type="tel"
+name="phone"
+placeholder="Contact Number"
+value="{{ user.phone if user else '' }}">
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<!-- Email -->
+
+<div class="field">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+name="email"
+placeholder="Email Address"
+value="{{ user.email if user else '' }}"
+readonly>
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<!-- Username -->
+
+<div class="field">
+
+<i class="fa-solid fa-at"></i>
+
+<input
+type="text"
+name="username"
+placeholder="Username"
+value="{{ user.username if user else '' }}">
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<!-- Job Role -->
+
+<div class="field">
+
+<i class="fa-solid fa-briefcase"></i>
+
+<input
+type="text"
+name="job_role"
+placeholder="Job Role"
+value="{{ user.job_role if user else '' }}">
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<!-- Location -->
+
+<div class="field">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<input
+type="text"
+name="location"
+placeholder="Location"
+value="{{ user.location if user else '' }}">
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<!-- About -->
+
+<div class="field" style="align-items:flex-start;">
+
+<i class="fa-solid fa-file-lines" style="margin-top:6px;"></i>
+
+<textarea
+name="about"
+rows="4"
+placeholder="Tell us about yourself..."
+style="flex:1;background:transparent;border:none;outline:none;resize:none;color:white;font-size:17px;padding:0 12px;font-family:Inter,sans-serif;">{{ user.about if user else '' }}</textarea>
+
+<i class="fa-solid fa-angle-right arrow" style="margin-top:6px;"></i>
+
+</div>
+
+<!-- LinkedIn -->
+
+<div class="field">
+
+<i class="fa-brands fa-linkedin"></i>
+
+<input
+type="url"
+name="linkedin"
+placeholder="LinkedIn Profile"
+value="{{ user.linkedin if user else '' }}">
+
+<i class="fa-solid fa-angle-right arrow"></i>
+
+</div>
+
+<button type="submit" class="save-btn">
+<i class="fa-solid fa-floppy-disk"></i>
+&nbsp; Save Changes
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+
+
+<script>
+const form = document.querySelector(".form");
+const saveBtn = document.querySelector(".save-btn");
+const popup = document.getElementById("successPopup");
+
+// Save button loading
+form.addEventListener("submit", function () {
+    saveBtn.disabled = true;
+    saveBtn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        Saving...
+    `;
+});
+
+// Close popup
+function closePopup() {
+    popup.style.display = "none";
+}
+
+// Upload Profile Image
+const cameraBtn = document.querySelector(".camera");
+const fileInput = document.getElementById("profileImage");
+const avatarInner = document.querySelector(".avatar-inner");
+
+cameraBtn.addEventListener("click", () => {
+    fileInput.click();
+});
+
+fileInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        avatarInner.innerHTML = `
+            <img src="${e.target.result}"
+                 style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
+        `;
+    };
+
+    reader.readAsDataURL(file);
+});
+
+// Input animation
+document.querySelectorAll(".field input, textarea").forEach((input) => {
+
+    input.addEventListener("focus", () => {
+        input.parentElement.style.borderColor = "#3b82f6";
+        input.parentElement.style.boxShadow = "0 0 25px rgba(59,130,246,.35)";
+    });
+
+    input.addEventListener("blur", () => {
+        input.parentElement.style.borderColor = "rgba(255,255,255,.08)";
+        input.parentElement.style.boxShadow = "none";
+    });
+
+});
+
+// Hover animation
+document.querySelectorAll(".field").forEach((field) => {
+
+    field.addEventListener("mouseenter", () => {
+        field.style.transform = "translateY(-2px)";
+    });
+
+    field.addEventListener("mouseleave", () => {
+        field.style.transform = "translateY(0)";
+    });
+
+});
+
+// Page fade animation
+document.body.style.opacity = "0";
+
+window.addEventListener("load", () => {
+    document.body.style.transition = "opacity .8s ease";
+    document.body.style.opacity = "1";
+});
+
+// Wrapper animation
+const wrapper = document.querySelector(".wrapper");
+
+wrapper.animate(
+[
+    {
+        transform: "translateY(20px)",
+        opacity: 0
+    },
+    {
+        transform: "translateY(0)",
+        opacity: 1
+    }
+],
+{
+    duration: 900,
+    fill: "forwards",
+    easing: "ease"
+}
+);
+
+// Keyboard navigation
+document.querySelectorAll("input, textarea").forEach((field) => {
+
+    field.addEventListener("keydown", (e) => {
+
+        if (e.key === "Enter" && field.tagName !== "TEXTAREA") {
+
+            e.preventDefault();
+
+            const inputs = [...document.querySelectorAll("input, textarea")];
+            const index = inputs.indexOf(field);
+
+            if (index + 1 < inputs.length) {
+                inputs[index + 1].focus();
+            }
+
+        }
+
+    });
+
+});
+
+// Ripple effect
+saveBtn.addEventListener("click", function(e){
+
+    const ripple = document.createElement("span");
+
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+    ripple.style.position = "absolute";
+    ripple.style.borderRadius = "50%";
+    ripple.style.background = "rgba(255,255,255,.3)";
+    ripple.style.pointerEvents = "none";
+    ripple.style.left = (e.clientX - rect.left - size/2) + "px";
+    ripple.style.top = (e.clientY - rect.top - size/2) + "px";
+    ripple.style.transform = "scale(0)";
+    ripple.style.transition = ".6s";
+
+    this.style.position = "relative";
+    this.style.overflow = "hidden";
+
+    this.appendChild(ripple);
+
+    requestAnimationFrame(() => {
+        ripple.style.transform = "scale(2)";
+        ripple.style.opacity = "0";
+    });
+
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+
+});
+
+// Glow animation
+setInterval(() => {
+
+    wrapper.style.boxShadow = "0 0 60px rgba(59,130,246,.25)";
+
+    setTimeout(() => {
+        wrapper.style.boxShadow = "0 0 40px rgba(0,0,0,.45)";
+    }, 800);
+
+}, 4000);
+
+// Button hover
+saveBtn.addEventListener("mouseenter", () => {
+    saveBtn.style.transform = "scale(1.02)";
+});
+
+saveBtn.addEventListener("mouseleave", () => {
+    saveBtn.style.transform = "scale(1)";
+});
+</script>
+</html>

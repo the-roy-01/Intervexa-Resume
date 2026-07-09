@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Interview Practice</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+body{
+
+    min-height:100vh;
+    background:#020b20;
+    color:white;
+    display:flex;
+    justify-content:center;
+    padding:25px;
+
+}
+/* MAIN CARD */
+.page{
+    width:100%;
+    max-width:1500px;
+    min-height:900px;
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    background:
+    radial-gradient(circle at 50% 35%,#103d7055,transparent 35%),
+    linear-gradient(160deg,#02091d,#04183c);
+    border:1px solid rgba(255,255,255,.1);
+
+}
+/* BLUE CURVES */
+.page:before{
+
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    border:2px solid rgba(20,120,255,.25);
+    border-radius:50%;
+    left:-350px;
+    bottom:-350px;
+
+}
+.page:after{
+
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border:2px solid rgba(20,120,255,.2);
+    border-radius:50%;
+    right:-320px;
+    bottom:-300px;
+
+}
+/* HERO */
+.hero{
+
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:80px 20px 0;
+
+}
+.hero h1{
+
+    font-size:58px;
+    font-weight:800;
+    line-height:1.15;
+
+}
+.highlight{
+
+    color:#1595ff;
+
+}
+.line{
+
+    width:120px;
+    height:3px;
+    background:#16c8ff;
+    margin:35px auto;
+
+}
+.subtitle{
+
+    font-size:22px;
+    color:#c7d4eb;
+    line-height:1.5;
+}
+/* BUTTONS */
+.buttons{
+    margin-top:45px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+}
+.btn{
+    width:640px;
+    height:70px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    font-size:23px;
+    font-weight:700;
+    cursor:pointer;
+    text-decoration:none;
+}
+.primary{
+    background:linear-gradient(90deg,#18a5e8,#0969e5);
+}
+.secondary{
+    background:linear-gradient(90deg,#18a5e8,#0969e5);
+    border:2px solid transparent;
+    transition:all .3s ease;
+    color:#fff;
+}
+
+.secondary a{
+    color:#fff !important;
+}
+.arrow{
+    margin-left:auto;
+    margin-right:25px;
+    font-size:32px;
+    transition:all .4s cubic-bezier(.4, 0, .2, 1);
+}
+/* FEATURES */
+.features{
+    position:relative;
+    z-index:2;
+    margin:90px auto 40px;
+    width:85%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+}
+.feature{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:25px 35px;
+    border-right:1px solid rgba(255,255,255,.2);
+}
+.feature:last-child{
+    border:none;
+}
+.icon{
+    min-width:65px;
+    height:65px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    background:#092957;
+    border:1px solid #1675e8;
+}
+.feature h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+.feature p{
+    color:#b8c5dd;
+    font-size:16px;
+    line-height:1.4;
+}
+/* LAPTOP */
+@media(max-width:1200px) and (min-width:769px){
+.page{
+    min-height:820px;
+}
+.hero{
+    padding-top:60px;
+}
+.hero h1{
+    font-size:45px;
+}
+.btn{
+    width:550px;
+}
+.features{
+    width:95%;
+}
+.feature{
+    padding:15px;
+}
+.feature h3{
+    font-size:18px;
+}
+}
+/* MOBILE */
+@media(max-width:768px){
+body{
+    padding:10px;
+}
+.page{
+    min-height:auto;
+    padding-bottom:30px;
+}
+.hero{
+    padding:45px 20px 0;
+}
+.hero h1{
+    font-size:34px;
+}
+.line{
+    margin:25px auto;
+}
+.subtitle{
+    font-size:16px;
+}
+.buttons{
+    margin-top:35px;
+}
+.btn{
+    width:100%;
+    height:60px;
+    font-size:18px;
+}
+.arrow{
+    margin-right:15px;
+    font-size:25px;
+}
+.features{
+    width:90%;
+    margin:50px auto 0;
+    display:flex;
+    flex-direction:column;
+}
+.feature{
+    border:none;
+    padding:15px 0;
+}
+.icon{
+    min-width:55px;
+    height:55px;
+}
+.feature h3{
+    font-size:18px;
+}
+.feature p{
+    font-size:14px;
+}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<section class="hero">
+<h1>
+Ace Your Next Interview<br>
+with <span class="highlight" style="color:#23d9d2;">AI-Powered</span> Practice
+</h1>
+<div class="line"></div>
+<p class="subtitle">
+Practice interview questions, improve your communication skills,<br>
+and get instant feedback.
+</p>
+<div class="buttons">
+<div class="btn primary">
+<span style="color:white;">👤</span> <a href="{{url_for('aimock')}}" style="text-decoration: none; color:white;">
+Start Mock Interview </a>
+<span class="arrow">→</span>
+</div>
+<div class="btn secondary">
+<span>💬</span><a href="{{ url_for('interviewquestion') }}" style="text-decoration: none;">
+
+View Interview Questions</a>
+<span class="arrow">→</span>
+</div>
+</div>
+</section>
+<section class="features">
+<div class="feature">
+<div class="icon">◎</div>
+<div>
+<h3>Realistic Practice</h3>
+<p>
+Simulate real interview<br>
+experiences
+</p>
+</div>
+</div>
+<div class="feature">
+<div class="icon">▥</div>
+<div>
+<h3>Improve Skills</h3>
+<p>
+Enhance communication<br>
+and confidence
+</p>
+</div>
+</div>
+<div class="feature">
+<div class="icon">ϟ</div>
+<div>
+<h3>Instant Feedback</h3>
+<p>
+Get actionable insights<br>
+right away
+</p>
+</div>
+</div>
+</section>
+</div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Resume Analysis</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Inter',sans-serif;
+    background:
+    radial-gradient(circle at top right,#093865,#020817 65%);
+    color:white;
+}
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:60px 7%;
+}
+.container{
+    width:100%;
+    max-width:1500px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:45% 55%;
+    gap:45px;
+    align-items:center;
+}
+/* LEFT CONTENT */
+.tag{
+    display:inline-block;
+    border:1px solid #1680ff;
+    border-radius:30px;
+    padding:9px 22px;
+    font-size:13px;
+    letter-spacing:1px;
+    color:#d9e8ff;
+    margin-bottom:28px;
+}
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:78px;
+    line-height:1.05;
+}
+.title-blue{
+    display:block;
+    color:#1677ff;
+}
+/* DOT LOADING */
+.dots{
+    display:inline-flex;
+    margin-left:4px;
+}
+.dots span{
+    display:inline-block;
+    opacity:0;
+    animation:dotsLoading 1.5s infinite;
+}
+.dots span:nth-child(1){
+    animation-delay:0s;
+}
+.dots span:nth-child(2){
+    animation-delay:.3s;
+}
+.dots span:nth-child(3){
+    animation-delay:.6s;
+}
+@keyframes dotsLoading{
+    0%{
+        opacity:0;
+    }
+    30%{
+        opacity:1;
+    }
+    70%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+    }
+}
+.line{
+    width:90px;
+    height:4px;
+    background:#1677ff;
+    margin:30px 0;
+}
+.description{
+    max-width:550px;
+    font-size:19px;
+    line-height:1.6;
+    color:#c3d0e5;
+    margin-bottom:35px;
+}
+/* FEATURES */
+.features{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+.feature{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+.icon{
+    height:58px;
+    width:58px;
+    flex-shrink:0;
+    border-radius:50%;
+    background:#072752;
+    border:1px solid #1670ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:25px;
+}
+.feature h3{
+    font-size:20px;
+    margin-bottom:5px;
+}
+.feature p{
+    color:#aab8ce;
+    font-size:16px;
+}
+/* IMAGE */
+.image-box{
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 25px 60px rgba(0,0,0,.5);
+}
+.image-box img{
+    width:100%;
+    display:block;
+}
+/* TABLET */
+@media(max-width:1100px){
+.container{
+    grid-template-columns:1fr;
+}
+h1{
+    font-size:65px;
+}
+.image-box{
+    margin-top:30px;
+}
+}
+/* MOBILE */
+@media(max-width:600px){
+.hero{
+    padding:35px 20px;
+}
+.tag{
+    font-size:11px;
+    padding:8px 15px;
+}
+h1{
+    font-size:42px;
+}
+.description{
+    font-size:16px;
+}
+.line{
+    margin:20px 0;
+}
+.feature{
+    gap:14px;
+}
+.icon{
+    height:45px;
+    width:45px;
+    font-size:19px;
+}
+.feature h3{
+    font-size:16px;
+}
+.feature p{
+    font-size:13px;
+}
+.image-box{
+    border-radius:18px;
+}
+}
+</style>
+<meta http-equiv="refresh" content="5;url=/run_analysis">
+</head>
+<body>
+<section class="hero">
+<div class="container">
+<div class="content">
+<div class="tag">
+AI-POWERED RESUME ANALYSIS
+</div>
+<h1>
+Analyzing
+<span class="title-blue">
+Your Resume<span class="dots">
+<span>.</span><span>.</span><span>.</span>
+</span>
+</span>
+</h1>
+<div class="line"></div>
+<p class="description">
+Our AI evaluates your resume to uncover strengths,
+identify opportunities, and help you stand out
+to employers.
+</p>
+<div class="features">
+<div class="feature">
+<div class="icon">📄</div>
+<div>
+<h3>Reading Resume</h3>
+<p>Extracting key information and structure.</p>
+</div>
+</div>
+<div class="feature">
+<div class="icon">💼</div>
+<div>
+<h3>Extracting Skills</h3>
+<p>Identifying your core skills and expertise.</p>
+</div>
+</div>
+<div class="feature">
+<div class="icon">✓</div>
+<div>
+<h3>Checking ATS Compatibility</h3>
+<p>Ensuring your resume passes ATS systems.</p>
+</div>
+</div>
+<div class="feature">
+<div class="icon">📊</div>
+<div>
+<h3>Generating Insights</h3>
+<p>Providing actionable tips to improve your resume.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="image-box">
+<img src="{{url_for('static', filename='analyzingresume.jpeg')}}" alt="AI Resume">
+</div>
+</div>
+</section>
+</body>
+<script>
+setTimeout(function () {
+    window.location.href = "/run_analysis";
+}, 5000);
+</script>
+</html>

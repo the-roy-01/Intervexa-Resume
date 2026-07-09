@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Logo Animation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    font-family:'Inter',sans-serif;
+
+    background:
+    radial-gradient(circle at top,#14335c 0%,#071220 35%,#03060d 100%);
+
+}
+
+/* ==========================
+   MAIN CONTAINER
+========================== */
+
+.wrapper{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+}
+
+/* ==========================
+   GLOWING CARD
+========================== */
+
+.logo-card{
+
+    position:relative;
+
+    width:420px;
+    height:420px;
+
+    border-radius:32px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(25,92,170,.95) 0%,
+    rgba(8,24,48,1) 60%,
+    rgba(3,7,15,1) 100%);
+
+    box-shadow:
+
+    0 0 40px rgba(0,170,255,.20),
+
+    0 0 80px rgba(0,170,255,.12),
+
+    inset 0 0 40px rgba(0,170,255,.18);
+
+}
+
+/* Background Glow */
+
+.logo-card::before{
+
+content:"";
+
+position:absolute;
+
+width:340px;
+height:340px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(0,210,255,.25),
+
+transparent 70%);
+
+filter:blur(18px);
+
+animation:pulse 5s infinite;
+
+}
+
+/* Glass Overlay */
+
+.logo-card::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:32px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+inset 0 0 30px rgba(255,255,255,.03);
+
+}
+
+/* ==========================
+   AI TEXT
+========================== */
+
+.ai-text{
+
+position:absolute;
+
+font-size:118px;
+
+font-weight:300;
+
+letter-spacing:4px;
+
+color:#6deaff;
+
+z-index:20;
+
+text-shadow:
+
+0 0 8px #6deaff,
+
+0 0 18px #6deaff,
+
+0 0 35px rgba(109,234,255,.7);
+
+}
+
+/* ==========================
+   ORBIT AREA
+========================== */
+
+.orbit-area{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+perspective:1000px;
+
+}
+
+/* Orbit Ring */
+
+.orbit{
+
+position:absolute;
+
+width:285px;
+height:285px;
+
+border-radius:50%;
+
+border:2px solid rgba(89,236,255,.88);
+
+box-shadow:
+
+0 0 10px rgba(0,225,255,.8),
+
+0 0 22px rgba(0,225,255,.45),
+
+inset 0 0 12px rgba(0,225,255,.20);
+
+}
+
+/* Different Angles */
+
+.orbit1{
+
+transform:rotateX(72deg);
+
+}
+
+.orbit2{
+
+transform:rotateY(70deg);
+
+}
+
+.orbit3{
+
+transform:rotateZ(60deg) rotateX(72deg);
+
+}
+
+.orbit4{
+
+transform:rotateZ(-60deg) rotateX(72deg);
+
+}
+
+/* Electrons */
+
+.electron{
+
+position:absolute;
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:white;
+
+box-shadow:
+
+0 0 8px white,
+
+0 0 18px #59ecff,
+
+0 0 35px #59ecff;
+
+}
+/* Electron Positions */
+
+.e1{
+    top:-6px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.e2{
+    right:-6px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.e3{
+    bottom:-6px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.e4{
+    left:-6px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+/* ==========================
+   FLOATING PARTICLES
+========================== */
+
+.particles{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#6deaff;
+
+    box-shadow:
+    0 0 8px #6deaff,
+    0 0 15px #6deaff;
+
+    opacity:.7;
+
+}
+
+/* Random Positions */
+
+.p1{top:15%;left:22%;}
+.p2{top:30%;left:75%;}
+.p3{top:72%;left:30%;}
+.p4{top:82%;left:72%;}
+.p5{top:48%;left:16%;}
+.p6{top:18%;left:58%;}
+.p7{top:60%;left:86%;}
+.p8{top:42%;left:52%;}
+.p9{top:76%;left:58%;}
+.p10{top:12%;left:82%;}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(.95);
+
+opacity:.6;
+
+}
+
+50%{
+
+transform:scale(1.05);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.95);
+
+opacity:.6;
+
+}
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes rotate1{
+
+from{
+
+transform:rotateX(72deg) rotate(0deg);
+
+}
+
+to{
+
+transform:rotateX(72deg) rotate(360deg);
+
+}
+
+}
+
+@keyframes rotate2{
+
+from{
+
+transform:rotateY(70deg) rotate(0deg);
+
+}
+
+to{
+
+transform:rotateY(70deg) rotate(-360deg);
+
+}
+
+}
+
+@keyframes rotate3{
+
+from{
+
+transform:rotateZ(60deg) rotateX(72deg) rotate(0deg);
+
+}
+
+to{
+
+transform:rotateZ(60deg) rotateX(72deg) rotate(360deg);
+
+}
+
+}
+
+@keyframes rotate4{
+
+from{
+
+transform:rotateZ(-60deg) rotateX(72deg) rotate(0deg);
+
+}
+
+to{
+
+transform:rotateZ(-60deg) rotateX(72deg) rotate(-360deg);
+
+}
+
+}
+
+@keyframes twinkle{
+
+0%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+50%{
+
+opacity:1;
+
+transform:scale(1.4);
+
+}
+
+100%{
+
+opacity:.2;
+
+transform:scale(.8);
+
+}
+
+}
+
+.orbit1{
+
+animation:rotate1 8s linear infinite;
+
+}
+
+.orbit2{
+
+animation:rotate2 10s linear infinite;
+
+}
+
+.orbit3{
+
+animation:rotate3 12s linear infinite;
+
+}
+
+.orbit4{
+
+animation:rotate4 14s linear infinite;
+
+}
+
+.logo-card{
+
+animation:float 6s ease-in-out infinite;
+
+}
+
+.particle{
+
+animation:twinkle 3s ease-in-out infinite;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+.logo-card{
+
+width:320px;
+
+height:320px;
+
+border-radius:24px;
+
+}
+
+.ai-text{
+
+font-size:82px;
+
+}
+
+.orbit{
+
+width:210px;
+
+height:210px;
+
+}
+
+.electron{
+
+width:10px;
+height:10px;
+
+}
+}
+
+@media(max-width:480px){
+
+.logo-card{
+
+width:280px;
+height:280px;
+
+border-radius:22px;
+
+}
+
+.ai-text{
+
+font-size:68px;
+
+letter-spacing:2px;
+
+}
+
+.orbit{
+
+width:180px;
+height:180px;
+
+}
+
+.electron{
+
+width:8px;
+height:8px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="logo-card">
+
+<div class="particles">
+
+<span class="particle p1"></span>
+<span class="particle p2"></span>
+<span class="particle p3"></span>
+<span class="particle p4"></span>
+<span class="particle p5"></span>
+<span class="particle p6"></span>
+<span class="particle p7"></span>
+<span class="particle p8"></span>
+<span class="particle p9"></span>
+<span class="particle p10"></span>
+
+</div>
+
+<div class="orbit-area">
+
+<div class="orbit orbit1">
+<div class="electron e1"></div>
+</div>
+
+<div class="orbit orbit2">
+<div class="electron e2"></div>
+</div>
+
+<div class="orbit orbit3">
+<div class="electron e3"></div>
+</div>
+
+<div class="orbit orbit4">
+<div class="electron e4"></div>
+</div>
+
+</div>
+
+<div class="ai-text">
+AI
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const particles=document.querySelectorAll(".particle");
+
+particles.forEach((particle,index)=>{
+
+particle.style.animationDelay=`${index*0.3}s`;
+
+});
+
+const card=document.querySelector(".logo-card");
+
+let mouseX=0;
+let mouseY=0;
+
+document.addEventListener("mousemove",(e)=>{
+
+mouseX=(e.clientX/window.innerWidth-0.5)*12;
+
+mouseY=(e.clientY/window.innerHeight-0.5)*12;
+
+card.style.transform=
+`rotateY(${mouseX}deg) rotateX(${-mouseY}deg)`;
+
+});
+
+document.addEventListener("mouseleave",()=>{
+
+card.style.transform="rotateX(0deg) rotateY(0deg)";
+
+});
+const floatAnimation = () => {
+
+    const time = Date.now() * 0.001;
+
+    const y = Math.sin(time) * 5;
+
+    card.style.boxShadow = `
+        0 0 40px rgba(0,170,255,.20),
+        0 ${y}px 80px rgba(0,170,255,.15),
+        inset 0 0 40px rgba(0,170,255,.18)
+    `;
+
+    requestAnimationFrame(floatAnimation);
+
+};
+
+floatAnimation();
+
+/* Auto reset every few seconds */
+
+setInterval(() => {
+
+    card.style.transition = "transform .8s ease";
+
+    card.style.transform = "rotateX(0deg) rotateY(0deg)";
+
+}, 6000);
+setTimeout(function () {
+    window.location.href = "{{ url_for('mock') }}";
+}, 4000);
+
+</script>
+
+</body>
+
+</html>

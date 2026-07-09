@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume Analysis Report</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:
+      radial-gradient(circle at top left,#0d1f67 0%,transparent 25%),
+      radial-gradient(circle at top right,#3b0a74 0%,transparent 25%),
+      #020617;
+      color:white;
+      padding:40px 20px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:35px;
+    }
+
+    .title h1{
+      font-size:58px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    .title h1 span{
+      color:#4da3ff;
+    }
+
+    .title p{
+      margin-top:10px;
+      color:#cbd5e1;
+      font-size:18px;
+    }
+
+    /* MAIN CARD */
+
+    .main-card{
+      background:rgba(10,18,45,0.95);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:25px;
+      padding:40px;
+      margin-bottom:30px;
+      box-shadow:0 0 25px rgba(0,0,0,0.4);
+    }
+
+    .center{
+      text-align:center;
+    }
+
+    .resume-name{
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.1);
+      margin:15px 0;
+      background:rgba(255,255,255,0.03);
+    }
+
+    .completed{
+      color:#4ade80;
+      margin-bottom:20px;
+    }
+
+    /* CIRCLE */
+
+    .circle{
+      width:240px;
+      height:240px;
+      border-radius:50%;
+      background:conic-gradient(#00e5ff 0% 82%, #11224d 82%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:30px auto;
+      box-shadow:0 0 25px rgba(0,255,255,0.3);
+    }
+
+    .circle::before{
+      content:'';
+      position:absolute;
+      width:180px;
+      height:180px;
+      background:#071226;
+      border-radius:50%;
+    }
+
+    .circle-content{
+      position:relative;
+      text-align:center;
+      z-index:1;
+    }
+
+    .circle-content h2{
+      font-size:58px;
+    }
+
+    .circle-content p{
+      color:#cbd5e1;
+    }
+
+    /* BREAKDOWN */
+
+    .breakdown{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+      margin-top:35px;
+    }
+
+    .break-card{
+      background:#071226;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:20px;
+      padding:25px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .break-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px rgba(0,153,255,0.25);
+    }
+
+    .break-card i{
+      font-size:28px;
+      margin-bottom:15px;
+      color:#38bdf8;
+    }
+
+    .break-card h3{
+      font-size:36px;
+    }
+
+    .break-card p{
+      color:#cbd5e1;
+      margin-top:5px;
+    }
+
+    /* SECTION */
+
+    .section-card{
+      display:flex;
+      gap:30px;
+      align-items:center;
+      background:linear-gradient(135deg,#071226,#111827);
+      border-radius:25px;
+      padding:30px;
+      margin-bottom:25px;
+      border:1px solid rgba(255,255,255,0.08);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .section-card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+      90deg,
+      rgba(0,255,255,0.1),
+      rgba(255,0,255,0.1)
+      );
+      pointer-events:none;
+    }
+
+    .mini-circle{
+      min-width:180px;
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      background:conic-gradient(#22c55e 0% 92%, #11224d 92%);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+    }
+
+    .mini-circle::before{
+      content:'';
+      position:absolute;
+      width:135px;
+      height:135px;
+      border-radius:50%;
+      background:#081221;
+    }
+
+    .mini-content{
+      position:relative;
+      z-index:1;
+      text-align:center;
+    }
+
+    .mini-content h2{
+      font-size:42px;
+    }
+
+    .mini-content p{
+      color:#4ade80;
+      font-weight:600;
+    }
+
+    .details h2{
+      font-size:34px;
+      margin-bottom:10px;
+    }
+
+    .details h3{
+      margin-bottom:15px;
+      color:#4ade80;
+    }
+
+    .details p{
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+
+    .highlight{
+      margin-top:20px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:18px;
+      border-radius:15px;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .highlight i{
+      color:#4ade80;
+      font-size:22px;
+    }
+
+    /* IMPROVEMENTS */
+
+    .improvement-card{
+      background:#071226;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:22px;
+      padding:30px;
+      margin-bottom:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .left{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+    }
+
+    .icon-box{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:rgba(59,130,246,0.15);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#60a5fa;
+      font-size:28px;
+    }
+
+    .improvement-content h2{
+      margin-bottom:10px;
+    }
+
+    .priority{
+      display:inline-block;
+      padding:6px 14px;
+      border-radius:30px;
+      background:#1d4ed8;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+
+    .improvement-content p{
+      color:#cbd5e1;
+      line-height:1.6;
+    }
+
+    .impact{
+      text-align:center;
+      min-width:180px;
+    }
+
+    .impact h3{
+      color:#38bdf8;
+      margin-bottom:10px;
+    }
+
+    .impact-circle{
+      width:110px;
+      height:55px;
+      border:8px solid #2563eb;
+      border-bottom:none;
+      border-radius:110px 110px 0 0;
+      margin:auto;
+    }
+
+    /* SUMMARY */
+
+    .summary{
+      background:linear-gradient(90deg,#1d4ed8,#7e22ce);
+      border-radius:25px;
+      padding:30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .summary-left{
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+
+    .summary-icon{
+      width:80px;
+      height:80px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,0.3);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:35px;
+    }
+
+    .summary h2{
+      margin-bottom:10px;
+    }
+
+    .summary p{
+      color:#e2e8f0;
+      line-height:1.7;
+    }
+
+    .score-box{
+      width:130px;
+      height:130px;
+      border-radius:50%;
+      background:conic-gradient(#38bdf8 0% 91%, rgba(255,255,255,0.15) 91%);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .score-box::before{
+      content:'';
+      position:absolute;
+      width:95px;
+      height:95px;
+      border-radius:50%;
+      background:#4c1d95;
+    }
+
+    .score-content{
+      position:relative;
+      z-index:1;
+      text-align:center;
+    }
+
+    .score-content h2{
+      font-size:32px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      .section-card,
+      .improvement-card,
+      .summary{
+        flex-direction:column;
+        text-align:center;
+      }
+
+      .left{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .title h1{
+        font-size:42px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- TITLE -->
+
+  <div class="title">
+    <h1>RESUME ANALYSIS <span>REPORT</span></h1>
+    <p>
+      Our analysis highlights the strengths of your resume
+      and how well it meets industry standards.
+    </p>
+  </div>
+
+  <!-- MAIN SCORE -->
+
+  <div class="main-card center">
+
+    <h1>Your Resume Analysis Report</h1>
+
+    <div class="resume-name">
+      <i class="fa-solid fa-file"></i>
+      Resume: Avinash_Resume.pdf
+    </div>
+
+    <div class="completed">
+      <i class="fa-solid fa-circle-check"></i>
+      Analysis Completed
+    </div>
+
+    <h2>Overall Resume Score</h2>
+
+    <div class="circle">
+      <div class="circle-content">
+        <h2>82%</h2>
+        <p>ATS Compatibility Score</p>
+      </div>
+    </div>
+
+    <!-- BREAKDOWN -->
+
+    <div class="breakdown">
+
+      <div class="break-card">
+        <i class="fa-solid fa-file"></i>
+        <h3>90%</h3>
+        <p>Resume Format</p>
+      </div>
+
+      <div class="break-card">
+        <i class="fa-solid fa-user"></i>
+        <h3>85%</h3>
+        <p>Skills Match</p>
+      </div>
+
+      <div class="break-card">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h3>75%</h3>
+        <p>Keywords</p>
+      </div>
+
+      <div class="break-card">
+        <i class="fa-solid fa-briefcase"></i>
+        <h3>80%</h3>
+        <p>Experience</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- TECHNICAL -->
+
+  <div class="section-card">
+
+    <div class="mini-circle">
+      <div class="mini-content">
+        <h2>92%</h2>
+        <p>GOOD</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <h2>GOOD TECHNICAL SKILLS</h2>
+      <h3>Score: 92%</h3>
+
+      <p>
+        Your technical skills match industry standards and
+        demonstrate strong alignment with role requirements.
+      </p>
+
+      <div class="highlight">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>
+          Your resume contains strong technical skills that align
+          well with industry standards.
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+
+  <div class="section-card">
+
+    <div class="mini-circle" style="background:conic-gradient(#3b82f6 0% 95%, #11224d 95%);">
+      <div class="mini-content">
+        <h2>95%</h2>
+        <p>EXCELLENT</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <h2 style="color:#60a5fa;">CLEAR EDUCATION DETAILS</h2>
+      <h3>Score: 95%</h3>
+
+      <p>
+        Education information is complete, well-organized,
+        and easy to evaluate.
+      </p>
+
+      <div class="highlight">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>
+          Educational information is well-organized and complete.
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STRUCTURE -->
+
+  <div class="section-card">
+
+    <div class="mini-circle" style="background:conic-gradient(#9333ea 0% 90%, #11224d 90%);">
+      <div class="mini-content">
+        <h2>90%</h2>
+        <p>GOOD</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <h2 style="color:#c084fc;">PROPER RESUME STRUCTURE</h2>
+      <h3>Score: 90%</h3>
+
+      <p>
+        Professional formatting and structure enhance
+        readability and overall impact.
+      </p>
+
+      <div class="highlight">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>
+          Professional formatting improves readability.
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROJECTS -->
+
+  <div class="section-card">
+
+    <div class="mini-circle" style="background:conic-gradient(#ec4899 0% 88%, #11224d 88%);">
+      <div class="mini-content">
+        <h2>88%</h2>
+        <p>AVERAGE</p>
+      </div>
+    </div>
+
+    <div class="details">
+      <h2 style="color:#f472b6;">RELEVANT PROJECTS INCLUDED</h2>
+      <h3>Score: 88%</h3>
+
+      <p>
+        Projects demonstrate practical experience
+        and add value.
+      </p>
+
+      <div class="highlight">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>
+          Projects effectively showcase practical knowledge.
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SUMMARY -->
+
+  <div class="summary">
+
+    <div class="summary-left">
+
+      <div class="summary-icon">
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <div>
+        <h2>OVERALL SUMMARY</h2>
+
+        <p>
+          Your resume is strong and well-structured.
+          Continue refining your skills and tailoring
+          your resume for specific roles.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="score-box">
+      <div class="score-content">
+        <h2>91%</h2>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- IMPROVEMENTS -->
+
+  <div style="margin-top:40px;">
+
+    <!-- KEYWORDS -->
+
+    <div class="improvement-card">
+
+      <div class="left">
+
+        <div class="icon-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <div class="improvement-content">
+
+          <h2>Include Missing Keywords</h2>
+
+          <div class="priority">
+            Priority: High
+          </div>
+
+          <p>
+            ATS detected missing job-related keywords.
+          </p>
+
+          <p style="margin-top:12px;">
+            Several important keywords related to your
+            target role are missing.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="impact">
+        <h3>Impact High</h3>
+        <div class="impact-circle"></div>
+      </div>
+
+    </div>
+
+    <!-- PROJECT DESCRIPTION -->
+
+    <div class="improvement-card">
+
+      <div class="left">
+
+        <div class="icon-box">
+          <i class="fa-solid fa-laptop"></i>
+        </div>
+
+        <div class="improvement-content">
+
+          <h2>Improve Project Descriptions</h2>
+
+          <div class="priority" style="background:#0891b2;">
+            Priority: Medium
+          </div>
+
+          <p>
+            Add technologies, objectives, and outcomes.
+          </p>
+
+          <p style="margin-top:12px;">
+            Clearly explain technologies used and outcomes achieved.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="impact">
+        <h3 style="color:#22d3ee;">Impact Medium</h3>
+        <div class="impact-circle"
+        style="border-color:#06b6d4;"></div>
+      </div>
+
+    </div>
+
+    <!-- CERTIFICATIONS -->
+
+    <div class="improvement-card">
+
+      <div class="left">
+
+        <div class="icon-box" style="color:#c084fc;">
+          <i class="fa-solid fa-certificate"></i>
+        </div>
+
+        <div class="improvement-content">
+
+          <h2>Add Relevant Certifications</h2>
+
+          <div class="priority" style="background:#6d28d9;">
+            Priority: Medium
+          </div>
+
+          <p>
+            Certifications can improve profile credibility.
+          </p>
+
+          <p style="margin-top:12px;">
+            Adding certifications can strengthen recruiter confidence.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="impact">
+        <h3 style="color:#c084fc;">Impact Medium</h3>
+        <div class="impact-circle"
+        style="border-color:#9333ea;"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

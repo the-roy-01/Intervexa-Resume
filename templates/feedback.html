@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback | Intervexa Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0b1f3a,#071a2f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    color:#fff;
+}
+
+.container{
+    width:420px;
+    background:linear-gradient(145deg,#0c2a4a,#071a2f);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
+
+.title{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+}
+
+.title span{
+    background:linear-gradient(90deg,#00ffcc,#3b82f6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.subtitle{
+    text-align:center;
+    font-size:13px;
+    margin:10px 0 20px;
+    opacity:.7;
+}
+
+.section{
+    background:rgba(255,255,255,.03);
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.section-title{
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.choice-group{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.choice{
+    flex:1;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.2);
+    text-align:center;
+    cursor:pointer;
+}
+
+.choice:hover{
+    background:linear-gradient(90deg,#00ffcc,#3b82f6);
+    color:#000;
+}
+
+.stars{
+    display:flex;
+    gap:5px;
+    font-size:20px;
+    color:#888;
+    cursor:pointer;
+}
+
+.stars i:hover,
+.stars i.active{
+    color:gold;
+}
+
+.rating{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.rating span{
+    padding:8px 12px;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,.2);
+    cursor:pointer;
+}
+
+.rating span:hover,
+.rating span.active{
+    background:linear-gradient(90deg,#00ffcc,#3b82f6);
+    color:#000;
+}
+
+textarea{
+    width:100%;
+    padding:10px;
+    border:none;
+    outline:none;
+    resize:none;
+    border-radius:10px;
+    background:#0b223c;
+    color:white;
+}
+
+.submit-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#00ffcc,#3b82f6);
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.submit-btn:hover{
+    box-shadow:0 0 20px #00ffcc;
+}
+
+</style>
+</head>
+
+<body>
+
+<form action="{{ url_for('feedback') }}" method="POST">
+
+<div class="container">
+
+<div class="title">
+Candidate <span>Feedback</span>
+</div>
+
+<div class="subtitle">
+Your feedback helps us improve our hiring process.
+</div>
+
+<div class="section">
+<div class="section-title">1. Resume Screening</div>
+
+<div class="choice-group">
+<div class="choice">★ Poor</div>
+<div class="choice">★★ Average</div>
+<div class="choice">★★★ Good</div>
+<div class="choice">★★★★ Excellent</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+2. Interview Experience
+</div>
+
+<p>Communication</p>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+<p style="margin-top:10px;">Professionalism</p>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+<p style="margin-top:10px;">Technical Quality</p>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+3. Overall Experience
+</div>
+
+<div class="stars">
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+4. Recommendation
+</div>
+
+<div class="rating">
+<span>0</span>
+<span>1</span>
+<span>2</span>
+<span>3</span>
+<span>4</span>
+<span>5</span>
+<span>6</span>
+<span>7</span>
+<span>8</span>
+<span>9</span>
+<span>10</span>
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+5. Suggestion (Optional)
+</div>
+
+<textarea
+name="suggestion"
+rows="4"
+placeholder="Share your thoughts..."></textarea>
+
+</div>
+
+<button type="submit" class="submit-btn">
+Submit Feedback <i class="fa fa-paper-plane"></i>
+</button>
+
+</div>
+
+</form>
+
+<script>
+
+// Stars
+document.querySelectorAll('.stars').forEach(group=>{
+
+const stars=group.querySelectorAll('i');
+
+stars.forEach((star,index)=>{
+
+star.addEventListener('click',()=>{
+
+stars.forEach((s,i)=>{
+
+s.classList.toggle('active',i<=index);
+
+});
+
+});
+
+});
+
+});
+
+// Recommendation
+
+document.querySelectorAll('.rating span').forEach(item=>{
+
+item.addEventListener('click',()=>{
+
+document.querySelectorAll('.rating span').forEach(i=>i.classList.remove('active'));
+
+item.classList.add('active');
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

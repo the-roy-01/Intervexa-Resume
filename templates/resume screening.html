@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Upload Resume</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at center,
+    #28527d,
+    #071426 45%,
+    #020611);
+
+    color:white;
+
+}
+
+
+.container{
+
+    width:450px;
+
+}
+
+
+/* Upload Button */
+
+.upload-box{
+
+    width:420px;
+    height:110px;
+
+    display:flex;
+    align-items:center;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    background:
+    linear-gradient(90deg,#070912,#3528ff);
+
+    box-shadow:
+    0 0 35px rgba(70,70,255,.6);
+
+    transition:.3s;
+
+}
+
+
+.upload-box:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+input{
+
+    display:none;
+
+}
+
+
+.icon{
+
+    font: size 45px;
+
+    filter:drop-shadow(0 0 10px rgb(253, 252, 252));
+
+}
+
+
+.divider{
+
+    height:70px;
+    width:2px;
+
+    background:white;
+
+    margin:0 18px;
+
+}
+
+
+
+.upload-text h2{
+
+    font-size:22px;
+    font-weight:500;
+
+}
+
+
+.upload-text p{
+
+    margin-top:6px;
+    color:#ddd;
+
+    font-size:16px;
+
+}
+
+
+
+/* Content */
+
+.content{
+
+    margin-top:100px;
+
+}
+
+
+
+.content h1{
+
+    font-family:Georgia,serif;
+
+    font-size:32px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.point{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:22px 0;
+
+    font-size:22px;
+
+    color:#ddd;
+
+}
+
+
+
+.check{
+
+    width:35px;
+    height:35px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#14d633;
+
+    color:#042006;
+
+    font-size:25px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:500px){
+
+.container{
+    width:90%;
+}
+
+.upload-box{
+    width:100%;
+}
+
+.content h1{
+    font-size:26px;
+}
+
+}
+
+
+</style>
+
+</head>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js">
+
+</script>
+
+<body>
+
+
+<div class="container">
+
+
+<label class="upload-box">
+
+<input type="file" id="resume" accept=".pdf,.doc,.docx">
+
+
+<div class="icon">
+<ion-icon name="documets"></ion-icon>
+</div>
+
+
+<div class="divider"></div>
+
+
+<div class="upload-text">
+
+<h2>Upload your Resume</h2>
+
+<p>In PDF/DOCX form</p>
+
+</div>
+
+
+</label>
+
+
+
+<div class="content">
+
+
+<h1>3 Resume hacks HR loves:</h1>
+
+
+<div class="point">
+
+<div class="check">✓</div>
+
+<p>Keep it short.</p>
+
+</div>
+
+
+
+<div class="point">
+
+<div class="check">✓</div>
+
+<p>Add power verbs.</p>
+
+</div>
+
+
+
+<div class="point">
+
+<div class="check">✓</div>
+
+<p>Skip the objective</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- <script>
+
+const upload = document.getElementById("resume");
+
+
+upload.addEventListener("change",function(){
+
+    if(upload.files.length > 0){
+
+        alert(
+        "Resume uploaded: " + upload.files[0].name
+        );
+
+    }
+
+});
+
+
+</script> -->
+
+
+</body>
+</html>

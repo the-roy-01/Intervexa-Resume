@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Inter", Arial, sans-serif;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    radial-gradient(circle at top right,#14285b 0%,transparent 35%),
+    linear-gradient(135deg,#020b24,#06173c);
+    color:white;
+}
+/* Main card */
+.container{
+    width:90%;
+    max-width:1400px;
+    min-height:85vh;
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:28px;
+    background:
+    linear-gradient(
+    145deg,
+    rgba(18,42,90,0.45),
+    rgba(3,15,42,0.7)
+    );
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:60px 40px;
+}
+/* top icon */
+.icon{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    border:2px solid #55d7e8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:30px;
+}
+.icon span{
+    width:60px;
+    height:45px;
+    border:3px solid #55d7e8;
+    border-radius:12px;
+    position:relative;
+}
+.icon span:after{
+    content:"♡";
+    position:absolute;
+    color:#55d7e8;
+    font-size:30px;
+    top:0;
+    left:15px;
+}
+/* heading */
+h1{
+    font-size:80px;
+    font-weight:800;
+    background:linear-gradient(
+    90deg,
+    #35ef9b,
+    #5fc8ff,
+    #b273ff
+    );
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:20px;
+}
+.subtitle{
+    text-align:center;
+    font-size:22px;
+    line-height:1.6;
+    color:#d8def0;
+}
+/* divider */
+.divider{
+    width:45%;
+    height:1px;
+    margin:35px 0;
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #8794c0,
+    transparent
+    );
+}
+/* success section */
+.success{
+    text-align:center;
+}
+.check{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:#27e88c;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+    0 0 35px rgba(39,232,140,.45);
+}
+.check::after{
+    content:"";
+    width:40px;
+    height:20px;
+    border-left:8px solid #06173c;
+    border-bottom:8px solid #06173c;
+    transform:rotate(-45deg);
+    margin-top:-10px;
+}
+.success h2{
+    margin-top:45px;
+    font-size:28px;
+}
+.success p{
+    margin-top:12px;
+    color:#9ca9c8;
+    font-size:18px;
+}
+/* bottom cards */
+.bottom{
+    width:75%;
+    margin-top:50px;
+    padding:20px 30px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:15px;
+    display:flex;
+    justify-content:space-around;
+    background:rgba(255,255,255,.04);
+}
+.box{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    width:45%;
+    color:#cbd4ed;
+    font-size:17px;
+    line-height:1.5;
+}
+.box span{
+    width:55px;
+    height:55px;
+    border-radius:12px;
+    border:1px solid rgba(80,200,255,.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    color:#42eaa0;
+}
+/* Responsive */
+@media(max-width:768px){
+.container{
+    padding:35px 20px;
+}
+h1{
+    font-size:48px;
+}
+.subtitle{
+    font-size:16px;
+}
+.bottom{
+    width:100%;
+    flex-direction:column;
+    gap:25px;
+}
+.box{
+    width:100%;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="icon">
+<span></span>
+</div>
+<h1>Thank you!</h1>
+<p class="subtitle">
+Your feedback means a lot to us.<br>
+We appreciate you taking the time to help us improve.
+</p>
+<div class="divider"></div>
+<div class="success">
+<div class="check"></div>
+<h2>
+Feedback Submitted Successfully!
+</h2>
+<p>
+We'll use your feedback to make our platform better.
+</p>
+<br>
+ <a href="{{ url_for('home') }}" class="home" style=
+ "text-decoration: none;
+  color:white;
+  border-radius:12px;
+  padding:14px 32px;
+  background-color: #35ef9b;
+  border-radius: 10px;
+  display:inline-block
+  " >
+ <b>Return to Home</b></a>
+</div>
+<div class="bottom">
+<div class="box">
+<span>🛡</span>
+<p>
+Your feedback is confidential and helps us build<br>
+a better experience for everyone.
+</p>
+</div>
+<div class="box">
+<span>♧</span>
+<p>
+Together, we're creating a platform<br>
+that works for you.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>

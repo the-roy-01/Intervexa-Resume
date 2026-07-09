@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Intervexa Resume</title>
+<style>*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+height:100vh;
+font-family:"Poppins",sans-serif;
+}
+.contact-page{
+height:100vh;
+background: url("/static/privacybg.jpg");
+background-size:cover;
+background-position:center;
+color:white;
+padding:50px 70px;
+}
+/* Heading */
+header{
+text-align:center;
+}
+header h1{
+font-family:"Allura",cursive;
+font-size:110px;
+font-weight:400;
+letter-spacing:2px;
+margin-bottom:20px;
+}
+header p{
+font-size:22px;
+font-weight:400;
+color:#f0f2fa;
+}
+/* Contact section */
+.contact-box{
+width:590px;
+margin-left:auto;
+margin-right:8%;
+margin-top:120px;
+}
+.contact-item{
+height:100px;
+display:flex;
+align-items:center;
+justify-content:flex-end;
+gap:30px;
+border-bottom:3px solid rgba(255,255,255,.9);
+}
+.text{
+font-size:25px;
+letter-spacing:.5px;
+color:#eeeeef;
+text-align:right;
+}
+.icon{
+order:2;
+width:55px;
+height:55px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+color:white;
+}
+/* Responsive */
+@media(max-width:900px){
+.contact-page{
+padding:30px 20px;
+}
+header h1{
+font-size:70px;
+}
+header p{
+font-size:16px;
+}
+.contact-box{
+width:100%;
+margin:70px auto;
+}
+.contact-item{
+height:80px;
+}
+.text{
+font-size:17px;
+}
+.icon{
+font-size:30px;
+}
+}
+</style>
+</head>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>   
+<body>
+<div class="contact-page">
+<header>
+<h1>
+Contact Us
+</h1>
+<p>
+Reach out to our dedicated team for any inquiries, assistance, or information you need.
+</p>
+</header>
+<section class="contact-box">
+<div class="contact-item">
+<div class="icon">
+<ion-icon name="mail-outline"></ion-icon>
+</div>
+<div class="text">
+intervexaresume@gmail.com
+</div>
+</div>
+<div class="contact-item">
+<div class="icon">
+<ion-icon name="location-outline"></ion-icon>
+</div>
+<div class="text">
+Hazaribag, Jharkhand, 825301
+</div>
+</div>
+<div class="contact-item">
+<div class="icon">
+<ion-icon name="globe-outline"></ion-icon>
+</div>
+<div class="text">
+www.intervexaresume.com
+</div>
+</div>
+<div class="contact-item">
+<div class="icon">
+<ion-icon name="call-outline"></ion-icon>   
+</div>
+<div class="text">
++91 00000 00000
+</div>
+</div>
+</section>
+</div>
+</body>
+</html>

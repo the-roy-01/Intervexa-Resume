@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Career Assistant</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:
+    radial-gradient(circle at center,#123b80,#020b22);
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+}
+/* Main container */
+.container{
+    width:100%;
+    max-width:900px;
+    display:flex;
+    flex-direction:column;
+    gap:35px;
+}
+/* Card */
+.card{
+    width:100%;
+    min-height:240px;
+    display:flex;
+    align-items:center;
+    padding:30px;
+    border-radius:30px;
+    background:
+    linear-gradient(
+    120deg,
+    #061938,
+    #124ca5
+    );
+    border:1px solid rgba(100,160,255,.5);
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.35);
+}
+/* Icon */
+.icon-box{
+    width:110px;
+    height:110px;
+    flex-shrink:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0d3b83;
+    border-radius:25px;
+    font-size:55px;
+}
+/* Divider */
+.divider{
+    width:2px;
+    height:120px;
+    background:#5290ff;
+    margin:0 35px;
+}
+/* Text */
+.content{
+    flex:1;
+}
+.content h1{
+    color:white;
+    font-family:Georgia,serif;
+    font-size:clamp(28px,5vw,52px);
+    line-height:1.05;
+}
+.content p{
+    margin-top:20px;
+    color:#d5dded;
+    font-size:clamp(16px,2.5vw,24px);
+}
+/* Tablet */
+@media(max-width:700px){
+.card{
+    min-height:200px;
+    padding:20px;
+}
+.icon-box{
+    width:80px;
+    height:80px;
+    font-size:40px;
+}
+.divider{
+    height:90px;
+    margin:0 20px;
+}
+}
+/* Mobile */
+@media(max-width:500px){
+body{
+    align-items:flex-start;
+    padding:15px;
+}
+.container{
+    gap:25px;
+}
+.card{
+    flex-direction:column;
+    text-align:center;
+    padding:25px 15px;
+}
+.divider{
+    width:80px;
+    height:2px;
+    margin:20px 0;
+}
+.content h1{
+    font-size:32px;
+}
+.content p{
+    font-size:18px;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="card">
+<div class="icon-box">
+📄
+</div>
+<div class="divider"></div>
+<div class="content">
+<a href="{{ url_for('upload') }}" style="text-decoration: none;">
+<h1>
+RESUME<br>
+SCREENING
+</h1>
+<p>
+Analyze. Improve. Achieve.
+</p>
+</a>
+</div>
+</div>
+<div class="card">
+<div class="icon-box">
+💬
+</div>
+<div class="divider"></div>
+<div class="content">
+<a href="{{ url_for('interview') }}" style="text-decoration: none;">
+<h1>
+INTERVIEW<br>
+PREPARATION
+</h1>
+<p>
+Practice. Improve. Impress.
+</p>
+</a>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Intervexa Resume | Reset Password</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(135deg,#08152d 0%,#0d2348 45%,#173d8f 100%);
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+/* Background Glow */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+top:-180px;
+
+left:-180px;
+
+width:420px;
+
+height:420px;
+
+background:#2563eb55;
+
+border-radius:50%;
+
+filter:blur(140px);
+
+}
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-180px;
+
+right:-180px;
+
+width:420px;
+
+height:420px;
+
+background:#8b5cf655;
+
+border-radius:50%;
+
+filter:blur(140px);
+
+}
+
+/* Container */
+
+.container{
+
+width:100%;
+
+max-width:500px;
+
+padding:25px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.card{
+
+background:rgba(12,22,45,.55);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:28px;
+
+padding:55px 45px;
+
+text-align:center;
+
+box-shadow:0 18px 45px rgba(0,0,0,.35);
+
+animation:fadeUp .8s ease;
+
+}
+
+/* Lock Icon */
+
+.icon{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+margin-bottom:22px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#2563eb,#8b5cf6);
+
+box-shadow:0 0 35px rgba(79,70,229,.5);
+
+color:#fff;
+
+font-size:38px;
+
+animation:float 3s infinite ease-in-out;
+
+}
+
+h1{
+
+font-size:40px;
+
+font-weight:800;
+
+color:#fff;
+
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+font-size:17px;
+
+color:#c8d6f4;
+
+margin-bottom:35px;
+
+}
+
+/* Password Field */
+
+.input-box{
+
+position:relative;
+
+margin-bottom:25px;
+
+}
+
+.input-box i.lock{
+
+position:absolute;
+
+left:22px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+font-size:22px;
+
+color:#8fb4ff;
+
+}
+
+.input-box input{
+
+width:100%;
+
+height:68px;
+
+padding-left:65px;
+
+padding-right:60px;
+
+border-radius:50px;
+
+border:2px solid rgba(125,155,255,.35);
+
+outline:none;
+
+background:rgba(255,255,255,.05);
+
+color:#fff;
+
+font-size:17px;
+
+transition:.3s;
+
+}
+
+.input-box input::placeholder{
+
+color:#9db3de;
+
+}
+
+.input-box input:focus{
+
+border-color:#4f8fff;
+
+box-shadow:0 0 18px rgba(79,143,255,.35);
+
+}
+
+.eye{
+
+position:absolute;
+
+right:22px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+cursor:pointer;
+
+font-size:20px;
+
+color:#9ec3ff;
+
+}
+
+/* Password Rule */
+
+.rule{
+
+display:flex;
+
+align-items:flex-start;
+
+gap:12px;
+
+margin:20px 0 35px;
+
+text-align:left;
+
+color:#d9e6ff;
+
+font-size:16px;
+
+line-height:1.6;
+
+}
+
+.rule i{
+
+color:#2563eb;
+
+font-size:22px;
+
+margin-top:2px;
+
+}
+
+.rule strong{
+
+display:block;
+
+color:#fff;
+
+margin-top:4px;
+
+}
+
+/* Button */
+
+button{
+
+width:100%;
+
+height:65px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:20px;
+
+font-weight:700;
+
+cursor:pointer;
+
+color:#fff;
+
+background:linear-gradient(135deg,#2563eb,#4f8fff);
+
+box-shadow:0 14px 30px rgba(37,99,235,.35);
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:0 20px 40px rgba(37,99,235,.45);
+
+}
+
+/* Animations */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+/* =========================
+   Responsive Design
+========================= */
+
+@media (max-width:768px){
+
+.container{
+padding:20px;
+}
+
+.card{
+padding:40px 28px;
+border-radius:24px;
+}
+
+.icon{
+width:72px;
+height:72px;
+font-size:30px;
+}
+
+h1{
+font-size:32px;
+}
+
+.subtitle{
+font-size:15px;
+margin-bottom:30px;
+}
+
+.input-box input{
+height:60px;
+font-size:16px;
+padding-left:58px;
+padding-right:55px;
+}
+
+.rule{
+font-size:15px;
+}
+
+button{
+height:58px;
+font-size:18px;
+}
+
+}
+
+@media (max-width:480px){
+
+.card{
+padding:32px 20px;
+}
+
+h1{
+font-size:28px;
+}
+
+.subtitle{
+font-size:14px;
+}
+
+.icon{
+width:65px;
+height:65px;
+font-size:28px;
+}
+
+.input-box input{
+height:56px;
+font-size:15px;
+padding-left:55px;
+padding-right:50px;
+}
+
+.rule{
+font-size:14px;
+}
+
+button{
+height:55px;
+font-size:17px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="icon">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+
+<h1>Reset your password</h1>
+
+<p class="subtitle">
+Please enter your new password
+</p>
+
+<form method="POST">
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock lock"></i>
+
+<input
+type="password"
+id="password"
+name="password"
+placeholder="Type your password"
+required>
+
+<i class="fa-solid fa-eye eye" id="togglePassword"></i>
+
+</div>
+
+<div class="rule">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<div>
+
+Your password must contain:
+
+<strong>At least 6 characters</strong>
+
+</div>
+
+</div>
+
+<button type="submit">
+
+Done
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+const password = document.getElementById("password");
+const toggle = document.getElementById("togglePassword");
+
+// Show / Hide Password
+toggle.onclick = function() {
+
+    if (password.type === "password") {
+
+        password.type = "text";
+
+        toggle.classList.remove("fa-eye");
+        toggle.classList.add("fa-eye-slash");
+
+    } else {
+
+        password.type = "password";
+
+        toggle.classList.remove("fa-eye-slash");
+        toggle.classList.add("fa-eye");
+
+    }
+
+};
+
+// Password Validation Before Form Submit
+document.querySelector("form").addEventListener("submit", function(e) {
+
+    if (password.value.length < 6) {
+
+        e.preventDefault();
+
+        alert("Password must contain at least 6 characters.");
+
+        password.focus();
+
+        return false;
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

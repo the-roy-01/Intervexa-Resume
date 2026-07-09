@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Intervexa Resume | AI Career Partner</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<header>
+
+<div class="logo">
+
+<div class="logo-brand">
+<img class="logo-icon" src="{{url_for('static', filename='logo.png')}}" alt="Logo">
+<div class="logo-text-wrap">
+<img class="logo-text" src="{{url_for('static', filename='text.png')}}" alt="Brand text">
+<span class="logo-caption">AI-Powered Career Success</span>
+</div>
+</div>
+
+</div>
+
+
+<nav>
+
+<a href="#features">Features</a>
+<a href="#features">How It Works</a>
+<a href="#about">About Us</a>
+<!-- <a href="#resources">Resources</a> -->
+<a href='{{ url_for('feedback') }}'>Feedback</a>
+
+</nav>
+
+
+<div class="nav-buttons">
+
+<a href="{{ url_for('login') }}">
+<button class="login">
+Login
+</button>
+</a>
+
+<a href="{{ url_for('register') }}">
+<button class="register">
+Register
+</button>
+</a>
+
+</div>
+
+
+</header>
+
+<!-- HERO SECTION -->
+
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+
+<h1>
+
+From Resume Screening
+<br>
+
+to 
+
+<span>
+Interview Winning
+</span>
+
+</h1>
+
+
+
+<p>
+
+Intervexa Resume is your AI-powered career partner
+that analyzes your resume, enhances your skills,
+and prepares you for successful interviews.
+Turn your potential into opportunities and
+move closer to your dream career.
+
+</p>
+
+
+
+<div class="hero-buttons">
+
+<a href="{{ url_for('register') }}">
+<button class="primary">
+
+Get Started →
+
+</button>
+</a>
+
+</div>
+
+
+
+<div class="features-mini">
+
+
+<div>
+<ion-icon name="aperture-outline"></ion-icon> AI-Powered Analysis
+</div>
+
+
+<div>
+<ion-icon name="person-circle-outline"></ion-icon> Personalized Insights
+</div>
+
+
+<div>
+<ion-icon name="bar-chart-outline"></ion-icon> Interview Success
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="hero-image">
+
+
+<img src="{{ url_for('static', filename='hero.png') }}" alt="Hero Image">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- STATS -->
+
+
+<section class="stats">
+
+
+<div>
+
+<h3>
+<ion-icon name="shield-checkmark"></ion-icon> Trusted by Job Seekers
+
+</h3>
+<p> worldwide</p>
+
+</div>
+
+<div>
+
+<h2>
+<ion-icon name="reader-outline"></ion-icon> 10K+
+</h2>
+
+<p>
+Resumes Analyzed
+</p>
+
+</div>
+
+<div>
+
+<h2>
+<ion-icon name="person-add-sharp"></ion-icon> 5K+
+</h2>
+
+<p>
+Successful Interviews
+</p>
+
+</div>
+
+
+
+
+<div>
+
+<h2>
+<ion-icon name="radio"></ion-icon> 90%
+</h2>
+
+<p>
+User Satisfaction
+</p>
+
+</div>
+
+<div>
+
+<h2>
+<ion-icon name="business"></ion-icon> 25+
+</h2>
+
+<p>
+Industries Covered
+</p>
+
+</div>
+
+
+</section>
+
+<!-- PROVIDE SECTION -->
+
+
+<section class="provide" id="about">
+
+
+<div class="section-title">
+
+<h2>
+What We Provide
+</h2>
+
+
+<p>
+Everything you need to build a successful career journey
+<br>
+from creating a powerful resume to confidently cracking interviews.
+</p>
+
+</div>
+
+
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='assests/resume.png') }}" alt="Resume Icon">
+
+
+<h3>
+AI Resume Screening
+</h3>
+
+
+<p>
+
+Analyze your resume with AI to get ATS scores,
+skill evaluation, and actionable improvement suggestions.
+
+</p>
+
+
+<ul>
+
+<li>ATS Compatibility Score</li>
+<li>Resume Quality Analysis</li>
+<li>Missing Keyword Detection</li>
+<li>Recruiter-Friendly Suggestions</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='assests/skill.png') }}" alt="Skill Icon">
+
+
+<h3>
+Smart Skill Gap Analysis
+</h3>
+
+
+<p>
+
+Identify the skills required for your dream role
+and understand where you need improvement.
+
+</p>
+
+
+<ul>
+
+<li>Current Skill Assessment</li>
+<li>Required Skill Comparison</li>
+<li>Industry Skills Identification</li>
+<li>Learning Recommendations</li>
+
+</ul>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='assests/interview.png') }}" alt="Interview Icon">
+        
+
+<h3>
+AI Mock Interviews
+</h3>
+
+
+<p>
+
+Practice real-world interviews with AI-powered
+simulations and receive instant feedback.
+
+</p>
+
+
+<ul>
+
+<li>Role-Based Questions</li>
+<li>Technical & HR Interviews</li>
+<li>Answer Evaluation</li>
+<li>Performance Feedback</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<img src="{{ url_for('static', filename='assests/performance.png') }}" alt="Performance Icon">
+
+
+<h3>
+Interview Performance Analysis
+</h3>
+
+
+<p>
+
+Understand your strengths and improve your
+weaknesses with detailed interview insights.
+
+</p>
+
+
+<ul>
+
+<li>Confidence Analysis</li>
+<li>Communication Feedback</li>
+<li>Answer Quality Score</li>
+<li>Improvement Tips</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- HOW IT WORKS -->
+
+
+<section class="workflow" id="features">
+
+
+<div class="section-title">
+
+<h2>
+How It Works
+</h2>
+
+</div>
+
+
+
+
+<div class="steps">
+
+
+<div>
+
+<img src="{{ url_for('static', filename='assests/upload.png') }}" alt="Upload Icon">
+
+<h4>
+1. Upload Resume
+</h4>
+
+<p>
+Upload your resume in PDF or DOC format.
+</p>
+
+</div>
+
+
+
+
+
+<div>
+
+<img src="{{ url_for('static', filename='assests/analysis.png') }}" alt="Analysis Icon">
+
+<h4>
+2. AI Analysis
+</h4>
+
+<p>
+Our AI analyzes your resume and provides insights.
+</p>
+
+</div>
+
+
+
+
+
+
+<div>
+
+<img src="{{ url_for('static', filename='assests/insight.png') }}" alt="Insight Icon">
+
+<h4>
+3. Get Insights
+</h4>
+
+<p>
+Receive customized suggestions.
+</p>
+
+</div>
+
+
+
+
+
+
+<div>
+
+<img src="{{ url_for('static', filename='assests/practice.png') }}" alt="Practice Icon">
+
+<h4>
+4. Practice & Improve
+</h4>
+
+<p>
+Prepare with mock interviews.
+</p>
+
+</div>
+
+
+
+
+
+
+<div>
+
+<img src="{{ url_for('static', filename='assests/success.png') }}" alt="Success Icon">
+
+<h4>
+5. Ace Interviews
+</h4>
+
+<p>
+Build confidence and get your dream job.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- TESTIMONIAL -->
+
+
+<section class="testimonial">
+
+
+<div class="quote">
+
+“
+
+</div>
+
+
+<p>
+
+Intervexa Resume helped me identify my weak areas
+and prepare effectively. I cracked my dream interview!
+
+</p>
+
+
+
+<div class="person">
+
+
+<img src="{{ url_for('static', filename='profile.jpeg') }}" alt="Profile Image">
+
+
+<div>
+
+<h3>
+Aditya Sharma
+</h3>
+
+<span>
+Software Engineer
+</span>
+
+<div>
+⭐⭐⭐⭐⭐
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- CTA -->
+
+
+<section class="cta">
+
+
+<div>
+
+<h2>
+Ready to take the next step in your career?
+</h2>
+
+
+<p>
+Join thousands of successful candidates who trust Intervexa Resume.
+</p>
+
+</div>
+
+<a href="{{ url_for('register') }}">
+<button>
+Get Started →
+</button>
+</a>
+
+</section>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+<p>
+© 2026 Intervexa Resume. All rights reserved.
+</p>
+
+<div class="footer-links">
+<a href="{{ url_for('privacy') }}">Privacy Policy</a>  
+<a href="{{ url_for('termsofservice') }}">Terms of Service</a>
+<a href="{{ url_for('contact') }}">Contact Us</a>
+</div>
+
+</footer>
+
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+
+</html>
