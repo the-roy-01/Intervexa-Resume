@@ -2,6 +2,10 @@
 
 AI-powered Resume Screening and Interview Preparation platform.
 
+##Live Demo
+
+Link-https://intervexa-resume.onrender.com/
+
 ## Team Members
 
 - Priyanshu Roy
