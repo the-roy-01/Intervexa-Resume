@@ -13,8 +13,8 @@ import bcrypt
 import random
 from flask_mail import Mail, Message
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-
+if os.name == "nt":
+    pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 # Load environment variables
 load_dotenv()
 
@@ -381,18 +381,24 @@ def upload():
 
                 # If scanned PDF
                 else:
-                    pix = page.get_pixmap(dpi=300)
 
-                    image_path = "temp_page.png"
+                        if os.name == "nt":
 
-                    pix.save(image_path)
+                            pix = page.get_pixmap(dpi=300)
 
-                    img = Image.open(image_path)
+                            image_path = "temp_page.png"
 
-                    text += pytesseract.image_to_string(img)
+                            pix.save(image_path)
 
-                    os.remove(image_path)
+                            img = Image.open(image_path)
 
+                            text += pytesseract.image_to_string(img)
+
+                            os.remove(image_path)
+
+                        else:
+
+                            print("OCR skipped on Render")
         pdf.close()
         # Analyze resume using AI
 
