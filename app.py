@@ -409,6 +409,8 @@ def upload():
 
             "filename": filename,
 
+            "filepath": filepath,
+
             "resume_text": text,
 
             "uploaded_at": datetime.utcnow()
@@ -449,7 +451,7 @@ def run_analysis():
     try:
 
         ai_result = analyze_resume_with_ai(
-            latest_resume["resume_text"]
+            latest_resume["filepath"]
         )
 
         print(ai_result)
