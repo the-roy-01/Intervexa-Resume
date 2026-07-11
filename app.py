@@ -58,15 +58,17 @@ except Exception as e:
     print("❌ Connection failed:", e)
 
 
-# ---------- AI FUNCTION ----------
+def analyze_resume_with_ai(file_path):
 
-def analyze_resume_with_ai(resume_text):
-    prompt = f"""
+    uploaded_file = genai.upload_file(file_path)
+
+    prompt = """
 You are an ATS Resume Analyzer.
 
-Analyze the following resume.
+Read the uploaded resume carefully, even if it is a scanned PDF.
 
 Score the following from 0 to 100:
+
 - Overall Score
 - Resume Format
 - Skills
@@ -78,7 +80,7 @@ Score the following from 0 to 100:
 
 Return ONLY valid JSON in this exact format:
 
-{{
+{
     "overall_score": 85,
 
     "format_score": 90,
@@ -106,28 +108,25 @@ Return ONLY valid JSON in this exact format:
     "project_rating": "Good",
 
     "summary": "Write a short summary.",
-    "technical_summary": "Write a short summary of your technical skills.",
-    "project_summary": "Write a short summary of your projects.",
+
+    "technical_summary": "Write a short summary of technical skills.",
+
+    "project_summary": "Write a short summary of projects.",
 
     "improvements": [
         "Improvement 1",
         "Improvement 2",
         "Improvement 3"
     ]
-}}
-
-Resume:
-
-{resume_text}
+}
 """
-    response = model.generate_content(prompt)
 
-    result = response.text
+    response = model.generate_content([uploaded_file, prompt])
 
-    # Remove markdown if Gemini returns ```json ... ```
-    result = result.replace("```json", "").replace("```", "").strip()
+    result = response.text.replace("```json", "").replace("```", "").strip()
 
     return json.loads(result)
+
 
 def generate_interview_questions(role, experience, interview_type, difficulty, total_questions):
 
@@ -447,20 +446,39 @@ def run_analysis():
 
     print("🤖 Sending resume to Gemini...")
 
-    ai_result = analyze_resume_with_ai(
-        latest_resume["resume_text"]
-    )
+    try:
 
-    print(ai_result)
+        ai_result = analyze_resume_with_ai(
+            latest_resume["resume_text"]
+        )
 
-    resumes_collection.update_one(
-        {"_id": latest_resume["_id"]},
-        {
-            "$set": {
-                "ai_result": ai_result
+        print(ai_result)
+
+        resumes_collection.update_one(
+            {"_id": latest_resume["_id"]},
+            {
+                "$set": {
+                    "ai_result": ai_result
+                }
             }
-        }
-    )
+        )
+
+    except Exception as e:
+
+        print("Gemini Error:", e)
+
+        resumes_collection.update_one(
+            {"_id": latest_resume["_id"]},
+            {
+                "$set": {
+                    "ai_result": {
+                        "overall_score": 0,
+                        "summary": "AI analysis failed.",
+                        "improvements": [str(e)]
+                    }
+                }
+            }
+        )
 
     return redirect(url_for("resume_analysis"))
 
