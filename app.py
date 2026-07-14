@@ -22,7 +22,7 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GEMIN_API_KEY"))
 print("Gemini API Key:", os.getenv("GEMIN_API_KEY"))
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel("gemini-3.5-flash")
 
 app = Flask(__name__)
 
